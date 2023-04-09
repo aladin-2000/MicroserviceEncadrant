@@ -16,6 +16,8 @@ public class Sujet implements Serializable {
     private String nomEncadrantComplet;
     private Long idEncadrant;
     private  boolean valide;
+    private boolean taken;
+
 
 
 
@@ -24,13 +26,14 @@ public class Sujet implements Serializable {
 
     public Sujet() {}
 
-    public Sujet(String title, String detail,Long idEncadrant,String filere,String nomEncadrantComplet,boolean valide) {
+    public Sujet(String title, String detail,Long idEncadrant,String filere,String nomEncadrantComplet,boolean valide,boolean taken) {
         this.filere=filere;
         this.detail=detail;
         this.title=title;
         this.idEncadrant=idEncadrant;
         this.nomEncadrantComplet=nomEncadrantComplet;
         this.valide=valide;
+        this.taken=taken;
     }
 
     public Long getId() {
@@ -81,7 +84,14 @@ public class Sujet implements Serializable {
     public void setValide(boolean valide) {
         this.valide = valide;
     }
-    public boolean getValide(boolean valide){
-       return this.valide=valide;
+    public boolean getValide(){
+       return this.valide;
+    }
+
+    public void setTaken(boolean taken) {
+        this.taken = taken;
+    }
+    public boolean getTaken(){
+        return this.valide;
     }
 }

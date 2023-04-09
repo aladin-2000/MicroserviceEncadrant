@@ -47,6 +47,11 @@ public class SujetController {
         sujetService.deleteSujet(id);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+@PutMapping("/valider/{id}")
+    public ResponseEntity<?> ValiderSujet(@PathVariable("id") Long id) {
+        sujetService.validerSujet(id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
 
 
 }

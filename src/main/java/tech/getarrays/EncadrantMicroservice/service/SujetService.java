@@ -48,5 +48,12 @@ public class SujetService {
         sujetRepo.deleteSujetById(id);
     }
 
+    public void validerSujet(Long id){
+
+        Sujet sujet;
+        sujet=sujetRepo.findSujetById(id).orElseThrow(() -> new UserNotFoundException("Sujet not found"));
+        sujet.setValide(true);
+    }
+
 
 }
