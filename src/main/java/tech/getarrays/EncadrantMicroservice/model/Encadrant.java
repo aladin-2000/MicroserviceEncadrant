@@ -17,6 +17,8 @@ public class Encadrant implements Serializable {
     private String descreption;
 
     private String password;
+    private boolean enabled;
+
 
 
     public Encadrant() {}
@@ -29,6 +31,7 @@ public class Encadrant implements Serializable {
         this.lastname=lastname;
         this.departement=departement;
         this.descreption=descreption;
+        this.enabled=false;
     }
 
     public Long getId() {
@@ -42,6 +45,10 @@ public class Encadrant implements Serializable {
 
 
 
+    public boolean getEnabled(){return this.enabled;}
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
 
 
 
@@ -86,13 +93,6 @@ public class Encadrant implements Serializable {
     public void setPhone(String phone) {
         this.phone = phone;
     }
-
-
-
-
-
-
-
 
 
 }

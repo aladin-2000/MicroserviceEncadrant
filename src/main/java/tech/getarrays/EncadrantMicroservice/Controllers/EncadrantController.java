@@ -30,9 +30,11 @@ public class EncadrantController {
         return new ResponseEntity<>(encadrant, HttpStatus.OK);
     }
 
-    @PostMapping("/registration")
+
+
+    @PostMapping("/addEncadrant")
     public ResponseEntity<Encadrant> addEncadrant(@RequestBody Encadrant encadrant) {
-        Encadrant newEncadrant = encadrantService.addEncadrant(encadrant);
+        Encadrant newEncadrant = encadrantService.addEncadrantt(encadrant);
         return new ResponseEntity<>(newEncadrant, HttpStatus.CREATED);
     }
 
@@ -55,4 +57,19 @@ public class EncadrantController {
         String password=encadrant.getPassword();
         return new ResponseEntity<>(encadrantService.login(email,password), HttpStatus.OK);
     }
+
+    @PostMapping("ValiderPostulation/{idEtudiant}/{idSujetAcadimique}")
+    public ResponseEntity<String> validerSujet(
+            @PathVariable Long idEtudiant,
+            @PathVariable Long idSujetAcadimique) {
+
+        try {
+            encadrantService.validerSujetBien(idEtudiant, idSujetAcadimique);
+            return ResponseEntity.ok("Sujet validé avec succès !");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Erreur lors de la validation du sujet : " + e.getMessage());
+        }
+    }
+
 }
